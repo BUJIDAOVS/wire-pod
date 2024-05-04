@@ -124,15 +124,12 @@ func openaiRequest(transcribedText string) string {
 		sendString = defaultPrompt + sendString
 	}
 	logger.Println("Making request to OpenAI...")
-	url := "https://api.openai.com/v1/completions"
+	url := "http://172.22.112.242:3000/v1/completions"
 	formData := `{
-"model": "gpt-3.5-turbo-instruct",
+//"model": "vector",
 "prompt": "` + sendString + `",
-"temperature": 0.9,
-"max_tokens": 256,
-"top_p": 1,
-"frequency_penalty": 0.2,
-"presence_penalty": 0
+"temperature": 0.7,
+"max_tokens": 512
 }`
 	req, _ := http.NewRequest("POST", url, bytes.NewBuffer([]byte(formData)))
 	req.Header.Set("Content-Type", "application/json")
