@@ -126,7 +126,7 @@ func openaiRequest(transcribedText string) string {
 	logger.Println("Making request to OpenAI...")
 	url := "http://172.22.112.242:3000/v1/completions"
 	formData := `{
-//"model": "vector",
+"model": "vector",
 "prompt": "` + sendString + `",
 "temperature": 0.7,
 "max_tokens": 512
